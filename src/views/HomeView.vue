@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <big-control class="control"></big-control>
+    <!-- <big-control class="control"></big-control> -->
     <div id="screen" class="screen"></div>
   </div>
 </template>
@@ -40,6 +40,7 @@ export default {
       scene = app.scene
       renderer = app.renderer
 
+      /** */
       // 开启辉光
       renderer.outputEncoding = THREE.sRGBEncoding
       renderer.toneMapping = THREE.ACESFilmicToneMapping
