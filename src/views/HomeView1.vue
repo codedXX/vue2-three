@@ -9,7 +9,7 @@ import ZThree from '@/three/ZThree.js'
 import * as THREE from 'three'
 import { loaderModel } from '@/three/loaderModel.js'
 
-let app, camera, scene, renderer, clock
+let app, camera, scene, renderer, clock,controls
 
 export default {
   name: 'HomeView',
@@ -22,14 +22,24 @@ export default {
       app.initLight()
 
       window.app = app
+      
+      // camera = app.camera
+      // scene = app.scene
+      // renderer = app.renderer
+      // clock = new THREE.Clock()
+
+      // camera.position.set(30, 30, 30)
+      // camera.lookAt(0, 0, 0)
+
+       app.cameraPosition = [68, 27, 47]
+      app.controlsTarget = [-9.94, 1.36, 3.18]
+      controls = app.controls
+      controls.target.set(...app.controlsTarget)
+      clock = new THREE.Clock()
       camera = app.camera
+      camera.position.set(...app.cameraPosition)
       scene = app.scene
       renderer = app.renderer
-      clock = new THREE.Clock()
-
-      // 相机位置
-      camera.position.set(30, 30, 30)
-      camera.lookAt(0, 0, 0)
 
       // 加载模型
       await loaderModel(app)
